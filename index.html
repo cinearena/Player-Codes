@@ -2,15 +2,16 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>HLS Player</title>
+  <title>HLS Stream</title>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
+  <h2>HLS Player Demo</h2>
   <video id="video" controls width="640" height="360"></video>
 
   <script>
     const video = document.getElementById('video');
-    const videoSrc = 'playlist.m3u8'; // Change this to your actual .m3u8 URL
+    const videoSrc = 'https://cinearena.github.io/Ts-Playlist-Player/playlist.m3u8';
 
     if (Hls.isSupported()) {
       const hls = new Hls();
@@ -20,7 +21,6 @@
         video.play();
       });
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      // For Safari and iOS
       video.src = videoSrc;
       video.addEventListener('loadedmetadata', function () {
         video.play();
