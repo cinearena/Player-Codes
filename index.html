@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HLS Player</title>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+  <video id="video" controls width="640" height="360"></video>
+
+  <script>
+    const video = document.getElementById('video');
+    const videoSrc = 'http://51.159.212.144:8080/hls/playlist.m3u8'; // Change this to your actual .m3u8 URL
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      // For Safari and iOS
+      video.src = videoSrc;
+      video.addEventListener('loadedmetadata', function () {
+        video.play();
+      });
+    }
+  </script>
+</body>
+</html>
