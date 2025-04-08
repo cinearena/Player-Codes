@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>9:16 Clappr Player</title>
+  <title>16:9 Clappr Player</title>
 
   <!-- Clappr and plugins -->
   <script src="//cdn.jsdelivr.net/npm/@clappr/player@0.4.0/dist/clappr.min.js"></script>
@@ -21,19 +21,16 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 20px;
       background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
     }
 
     #player {
       position: relative;
       width: 100%;
-      max-width: 540px; /* Controls max width */
+      max-width: 960px;
       aspect-ratio: 16 / 9;
+      margin: 0 auto;
     }
 
     .player-poster[data-poster] {
